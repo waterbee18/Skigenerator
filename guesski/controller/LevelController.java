@@ -23,7 +23,7 @@ public class LevelController
 
     public LevelController()
     {
-        cible.setOnDragDetected(event-> {
+        /*cible.setOnDragDetected(event-> {
 
         });
 
@@ -37,6 +37,6 @@ public class LevelController
             System.out.println(content);
 
             event.setDropCompleted(true);
-            });
+            });*/
     }
 }

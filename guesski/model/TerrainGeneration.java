@@ -41,5 +41,7 @@ public class TerrainGeneration {
         return ramp;
     }
 
-    public
+    public double getRampWidth(){
+        return rampWidth;
+    }
 }

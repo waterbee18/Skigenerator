@@ -6,7 +6,7 @@ package guesski.controller;
 public class MenuController {
 
     public void openGame(){
-
+        GameMaster.openGame();
     }
     public void openHelp(){
 
