@@ -13,7 +13,7 @@ public class TerrainGeneration {
     private Polygon ramp;
     private double rampWidth;
 
-    public TerrainGeneration(double height, double radRampAngle){
+    public Polygon generate(double height, double radRampAngle){
         this.height = height;
         rampRate = Math.atan(radRampAngle);
         dataPoints = new ArrayList<>(320);
@@ -35,6 +35,7 @@ public class TerrainGeneration {
         rampEdge[dataPoints.size()*2-2] = 0;
         rampEdge[dataPoints.size()*2-1] = height+10;
         this.ramp = new Polygon(rampEdge);
+        return ramp;
     }
 
     public Polygon getRamp() {
