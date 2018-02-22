@@ -9,6 +9,6 @@ public class MenuController {
         GameMaster.openGame();
     }
     public void openHelp(){
-
+        GameMaster.openHelp();
     }
 }

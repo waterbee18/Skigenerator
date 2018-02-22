@@ -3,7 +3,9 @@ package guesski.view;
 public enum View {
 
     MENU("/guesski/view/Menu.fxml"),
-    GAME("/guesski/view/interjeu.fxml");
+    GAME("/guesski/view/interjeu.fxml"),
+    HELP("/guesski/view/Help.fxml");
+
 
     private String path;
 

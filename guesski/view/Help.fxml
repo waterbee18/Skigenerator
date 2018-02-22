@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="BOTTOM_CENTER" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guesski.controller.HelpController">
+    <stylesheets>
+        <URL value="@styleSheet/Help.css" />
+    </stylesheets>
+   <children>
+       <Label styleClass="titre" text="Équation:" />
+      <Label text="Ep=mg∆h" />
+       <Label text="Ek=0.5*m*v^2" />
+       <Label text="Vx/Vy =cos/sin(θ)v" />
+       <Label text="∆y=(Viniy*∆t)-0.5*g*(∆t)^2" />
+       <Label text="∆t=(b±√(b^2-4ac))/2a" />
+       <Label text="Xf=Vx*∆t" />
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+         <children>
+             <Button mnemonicParsing="false" onAction="#closeHelp" text="compris!!" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

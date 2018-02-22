@@ -1,6 +1,8 @@
 package guesski.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
@@ -8,12 +10,18 @@ import javafx.scene.shape.Rectangle;
 
 public class LevelController
 {
+
+    public void closeGame(){
+        GameMaster.closeGame();
+    }
+
+
     @FXML
     Rectangle cible;
 
     public void dragDetected()
     {
-        Dragboard dragboard = cible.startDragAndDrop(TransferMode.MOVE);
+        /*Dragboard dragboard = cible.startDragAndDrop(TransferMode.MOVE);
         ClipboardContent contenu = new ClipboardContent();
         contenu.putString("Dropped");
         dragboard.setContent(contenu);
@@ -23,7 +31,7 @@ public class LevelController
 
     public LevelController()
     {
-        /*cible.setOnDragDetected(event-> {
+//        cible.setOnDragDetected(event-> {
 
         });
 
