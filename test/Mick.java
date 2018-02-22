@@ -1,5 +1,7 @@
 package test;
 
+import guesski.model.Animation.Animation;
+import guesski.model.Skieur;
 import guesski.model.TerrainGeneration;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -16,7 +18,10 @@ public class Mick extends Application {
     public void start(Stage primaryStage) throws Exception {
         TerrainGeneration tg = new TerrainGeneration();
         tg.generate(300, Math.PI/4);
-        Group root  = new Group(tg.getRamp());
+        Skieur skieur = new Skieur();
+        Animation animation = new Animation(skieur,tg.getRamp());
+        Group root  = new Group(tg.getRamp(),animation.getSkierModel().getModel());
+        animation.start();
         tg.getRamp().setTranslateY(50);
         Scene s = new Scene(root,720,670);
         primaryStage.setScene(s);

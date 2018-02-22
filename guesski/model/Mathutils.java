@@ -22,9 +22,9 @@ public class Mathutils {
         public static double deltaY(double hauteurJump, double yfinale){
             return hauteurJump-yfinale;
         }
-        public static double[] quad(double a, double b, double c, double x1, double x2){
-            x1= (-b + Math.sqrt(Math.pow(b, 2) - (4 * a * c))) / (2 * a);
-            x2= (-b + Math.sqrt(Math.pow(b, 2) - (4 * a * c))) / (2 * a);
+        public static double[] quad(double a, double b, double c){
+            double x1= (-b + Math.sqrt(Math.pow(b, 2) - (4 * a * c))) / (2 * a);
+            double x2= (-b + Math.sqrt(Math.pow(b, 2) - (4 * a * c))) / (2 * a);
             return new double[]{x1,x2};
         }
         public static double xFinal(double vitesseX, double temps){

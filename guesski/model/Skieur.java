@@ -4,41 +4,59 @@ import java.util.Random;
 
 public class Skieur
 {
-    Random random = new Random();
-    public int energieK = 0;
-    public int energieP = 0;
-    public int vitesse = 0;
-    public int masse = random.nextInt(60) + 60;
+    private Random random = new Random();
+    private double energieK = 0;
+    private double energieP = 0;
+    private double vitesse = 0;
+    private double masse = random.nextInt(60) + 60;
 
-    public int getEnergieK() {
+    public double getEnergieK() {
         return energieK;
     }
 
-    public int getEnergieP() {
+    public double getEnergieP() {
         return energieP;
     }
 
-    public int getMasse() {
+    public double getMasse() {
         return masse;
     }
 
-    public int getVitesse() {
+    public double getVitesse() {
         return vitesse;
     }
 
-    public void setEnergieK(int energieK) {
+    public void setEnergieK(double energieK) {
         this.energieK = energieK;
+        vitesse = Math.sqrt(2*energieK/masse);
     }
 
-    public void setEnergieP(int energieP) {
+    public void setEnergieP(double energieP) {
         this.energieP = energieP;
     }
 
-    public void setMasse(int masse) {
+    public void setMasse(double masse) {
         this.masse = masse;
     }
 
-    public void setVitesse(int vitesse) {
+    public void setVitesse(double vitesse) {
         this.vitesse = vitesse;
+        this.energieK = 0.5*masse*Math.pow(vitesse,2);
+    }
+
+    public void looseEp(double energie){
+        energieP-=energie;
+    }
+
+    public void looseEk(double energie){
+        setEnergieK(energieK-energie);
+    }
+
+    public void gainEp(double energie){
+        energieP+=energie;
+    }
+
+    public void gainEk(double energie){
+        setEnergieK(energieK+energie);
     }
 }
