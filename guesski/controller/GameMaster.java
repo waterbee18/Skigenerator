@@ -22,6 +22,7 @@ public class GameMaster {
     private Parent menu;
     private Parent gameBoard;
     private Parent help;
+    private Parent popup;
     private Scene scene;
 
     public GameMaster(Stage stage){
@@ -34,6 +35,7 @@ public class GameMaster {
         menu = load(View.MENU);
         help = load(View.HELP);
         gameBoard = load(View.GAME);
+        popup = load(View.POPUP);
         Scene scene = new Scene(root,1024,720);
         stage.setScene(scene);
         showMenu();
@@ -57,6 +59,11 @@ public class GameMaster {
     public void showhelpcenter(){panes.getChildren().add(help);}
 
     public void hidehelpcenter(){panes.getChildren().remove(help);}
+
+
+    public void showhpopupcenter(){panes.getChildren().add(popup);}
+
+    public void hidepopupcenter(){panes.getChildren().remove(popup);}
 
     private void stretch(Node node){
         AnchorPane.setBottomAnchor(node,0d);
@@ -91,4 +98,9 @@ public class GameMaster {
     public static void openHelp(){gm.showhelpcenter();}
 
     public static void closeHelp(){gm.hidehelpcenter();}
+
+    public static void openPopup(){gm.showhpopupcenter();}
+
+    public static void closePopup(){gm.hidepopupcenter();}
+
 }
