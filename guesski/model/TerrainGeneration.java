@@ -29,8 +29,6 @@ public class TerrainGeneration {
         rampEdge[dataPoints.size()*2-2] = 0;
         rampEdge[dataPoints.size()*2-1] = height+10;
         this.ramp = new Ramp(rampEdge, dataPoints);
-
-
         return ramp;
     }
 

@@ -1,6 +1,7 @@
 package guesski.model;
 
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 
 import java.util.ArrayList;
@@ -12,13 +13,16 @@ public class Ramp extends Polygon {
     private List<Double> distance;
     private List<Double> rate;
     private double heigth;
+    private double jumpHeigth;
 
     public Ramp(double[] edge, List<Node> nodes){
+        super(edge);
         List<Double> points = new ArrayList<>();
         for (double d:edge){
             points.add(d);
         }
-        getPoints().addAll(points);
+        this.getPoints().setAll(points);
+        this.setFill(Color.SKYBLUE);
         this.nodes = nodes;
         heigth = nodes.get(0).getY()*2;
         distance = new ArrayList<>();
@@ -29,6 +33,7 @@ public class Ramp extends Polygon {
             distance.add(distance(dx,dy));
             rate.add(Math.atan(dx/dy)*360/(2/Math.PI));
         }
+        jumpHeigth = nodes.get(nodes.size()-1).getY();
     }
 
     public List<Node> getNodes(){
@@ -41,6 +46,10 @@ public class Ramp extends Polygon {
 
     public double getHeigth(){
         return heigth;
+    }
+
+    public double getJumpHeigth(){
+        return jumpHeigth;
     }
 
     private Double distance(double dx, double dy){

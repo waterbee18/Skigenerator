@@ -35,18 +35,16 @@ public class Animation {
         skieur.setEnergieP(Mathutils.enegiepotentiel(skieur.getMasse(), ramp.getHeigth()));
         nodeIndex = 10;
         model.place(nodes.get(nodeIndex));
-
         double lostP = Mathutils.enegiepotentiel(skieur.getMasse(), nodes.get(nodeIndex).getY()-ramp.getHeigth());
         skieur.gainEk(lostP);
         skieur.looseEp(lostP);
         tl.play();
     }
 
-    public void loop(){
+    private void loop(){
 
         Node before = nodes.get(nodeIndex);
         double d = skieur.getVitesse()*0.02;
-        System.out.println(d);
         while (d > 0){
             nodeIndex++;
             d-=distance.get(nodeIndex);

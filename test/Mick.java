@@ -6,6 +6,7 @@ import guesski.model.TerrainGeneration;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 
 public class Mick extends Application {
@@ -22,7 +23,6 @@ public class Mick extends Application {
         Animation animation = new Animation(skieur,tg.getRamp());
         Group root  = new Group(tg.getRamp(),animation.getSkierModel().getModel());
         animation.start();
-        tg.getRamp().setTranslateY(50);
         Scene s = new Scene(root,720,670);
         primaryStage.setScene(s);
         primaryStage.show();
