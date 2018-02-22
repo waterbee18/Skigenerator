@@ -8,6 +8,8 @@ public class Skieur
     private double energieK = 0;
     private double energieP = 0;
     private double vitesse = 0;
+    private double vitesseX = 0;
+    private double vitesseY = 0;
     private double masse = random.nextInt(60) + 60;
 
     public double getEnergieK() {
@@ -58,5 +60,21 @@ public class Skieur
 
     public void gainEk(double energie){
         setEnergieK(energieK+energie);
+    }
+
+    public double getVitesseX() {
+        return vitesseX;
+    }
+
+    public double getVitesseY() {
+        return vitesseY;
+    }
+
+    public void setVitesseX(double vitesseX) {
+        this.vitesseX = vitesseX;
+    }
+
+    public void setVitesseY(double vitesseY) {
+        this.vitesseY = vitesseY;
     }
 }
