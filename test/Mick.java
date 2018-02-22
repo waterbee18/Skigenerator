@@ -14,8 +14,10 @@ public class Mick extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        TerrainGeneration tg = new TerrainGeneration(300, Math.PI/4);
+        TerrainGeneration tg = new TerrainGeneration();
+        tg.generate(300, Math.PI/4);
         Group root  = new Group(tg.getRamp());
+        tg.getRamp().setTranslateY(50);
         Scene s = new Scene(root,720,670);
         primaryStage.setScene(s);
         primaryStage.show();

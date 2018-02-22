@@ -10,7 +10,7 @@ public class TerrainGeneration {
     private List<Node> dataPoints;
     private double rampRate;
     private double height;
-    private Polygon ramp;
+    private Ramp ramp;
     private double rampWidth;
 
     public Polygon generate(double height, double radRampAngle){
@@ -23,26 +23,26 @@ public class TerrainGeneration {
         }
 
         rampWidth = i;
-
         double[] rampEdge = new double[(dataPoints.size()+2)*2];
-
-        for (i = 0; i < dataPoints.size();i++){
-            rampEdge[i*2] = dataPoints.get(i).getX();
-            rampEdge[i*2+1] = dataPoints.get(i).getY();
-        }
         rampEdge[dataPoints.size()*2-4] = rampEdge[dataPoints.size()*2-6];
         rampEdge[dataPoints.size()*2-3] = height+10;
         rampEdge[dataPoints.size()*2-2] = 0;
         rampEdge[dataPoints.size()*2-1] = height+10;
-        this.ramp = new Polygon(rampEdge);
+        this.ramp = new Ramp(rampEdge, dataPoints);
+
+
         return ramp;
     }
 
-    public Polygon getRamp() {
+    public Ramp getRamp() {
         return ramp;
     }
 
     public double getRampWidth(){
         return rampWidth;
+    }
+
+    public List<Node> getSkierTrajectory(){
+        return dataPoints;
     }
 }
