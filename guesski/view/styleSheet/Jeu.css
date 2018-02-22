@@ -1,0 +1,20 @@
+AnchorPane{
+-fx-background-color: linear-gradient(to bottom, #5ea1e1, white);
+-fx-background-size: 1024 720;
+}
+
+Rectangle{
+-fx-stroke: #ff0000;
+-fx-fill: #ff0000;
+-fx-translate-x: 400;
+-fx-translate-y: 300;
+}
+
+Button{
+-fx-text-fill: black;
+-fx-text-graphic-text-gap:18;
+-fx-text-alignment: center;
+-fx-translate-x: 1000;
+-fx-translate-y: 1;
+
+}
