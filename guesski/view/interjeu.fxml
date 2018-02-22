@@ -25,8 +25,7 @@
                </stops>
             </LinearGradient>
          </stroke></Rectangle>
-      <Button layoutX="709.0" layoutY="14.0" mnemonicParsing="false" text="?" />
+      <Button layoutX="709.0" layoutY="14.0" mnemonicParsing="false" onAction="#openPopup" text="?" />
       <Rectangle fx:id="cible" arcHeight="5.0" arcWidth="5.0" fill="RED" height="39.0" layoutX="549.0" layoutY="517.0" onDragDetected="#dragDetected" stroke="BLACK" strokeType="INSIDE" width="99.0" />
-      <Button layoutX="625.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeGame" text="Menu" />
    </children>
 </AnchorPane>

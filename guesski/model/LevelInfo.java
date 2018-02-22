@@ -16,4 +16,8 @@ public class LevelInfo
 
         skieur = new Skieur();
     }
+
+    public void TrouverPoints(){
+
+    }
 }

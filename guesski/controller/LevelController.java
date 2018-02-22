@@ -15,6 +15,7 @@ public class LevelController
         GameMaster.closeGame();
     }
 
+    public void openPopup(){GameMaster.openPopup();}
 
     @FXML
     Rectangle cible;

@@ -1,0 +1,17 @@
+Button{
+   -fx-pref-width: 300px;
+    -fx-pref-height: 150px;
+    -fx-background-color: #15DC79;
+    -fx-font-style: oblique;
+    -fx-font-size: 30px;
+}
+VBox{
+     -fx-background-image: url("/guesski/view/materials/popupBackground.jpg");
+     -fx-background-repeat: stretch;
+     -fx-background-size: 768 540;
+     -fx-background-position: center center;
+     -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+     -fx-spacing: 20;
+
+
+ }
