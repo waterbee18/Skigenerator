@@ -1,5 +1,8 @@
 package guesski.controller;
 
+import guesski.model.Animation.Animation;
+import guesski.model.LevelInfo;
+import javafx.beans.property.DoubleProperty;
 import guesski.model.Grille;
 import guesski.model.LevelInfo;
 import guesski.model.Ramp;
@@ -15,6 +18,25 @@ import javafx.scene.shape.Rectangle;
 
 public class LevelController
 {
+    @FXML
+    private Rectangle cible;
+    private LevelInfo levelInfo;
+    private DoubleProperty x;
+    private Animation animation;
+
+    public LevelController(){
+        levelInfo = new LevelInfo();
+        animation =  new Animation(levelInfo.getSkieur(),levelInfo.getTg().getRamp());
+    }
+
+    public void start(){
+        animation.start();
+        if (levelInfo.atteintCible(cible.getX(),cible.getWidth())){
+
+        }
+    }
+
+
 
     public void closeGame(){
         GameMaster.closeGame();

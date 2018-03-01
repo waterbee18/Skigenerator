@@ -12,7 +12,7 @@
         <URL value="@styleSheet/Help.css" />
     </stylesheets>
    <children>
-       <Label styleClass="titre" text="Équation:" />
+       <Label styleClass="titre" text="Équations:" />
       <Label text="Ep=mg∆h" />
        <Label text="Ek=0.5*m*v^2" />
        <Label text="Vx/Vy =cos/sin(θ)v" />
@@ -21,7 +21,7 @@
        <Label text="Xf=Vx*∆t" />
       <HBox alignment="CENTER_RIGHT">
          <children>
-             <Button mnemonicParsing="false" onAction="#closeHelp" text="compris!!">
+             <Button mnemonicParsing="false" onAction="#closeHelp" text="Compris!!">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin></Button>

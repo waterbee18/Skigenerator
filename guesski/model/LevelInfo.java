@@ -15,27 +15,23 @@ public class LevelInfo
     {
         Random random = new Random();
 
-         hauteur = random.nextInt(15);
-         angle = 0.5 + (1 - 0.5) * random.nextDouble();
+         setHauteur(random.nextInt(300)+300);
+         setAngle(0.5 + (1 - 0.5) * random.nextDouble());
 
-        skieur = new Skieur();
+        setSkieur(new Skieur());
 
-        tg = new TerrainGeneration();
-        tg.generate(hauteur,angle);
+        setTg(new TerrainGeneration());
+        getTg().generate(getHauteur(), getAngle());
     }
 
-    public TerrainGeneration getTg() {
-        return tg;
-    }
-
-    public void TrouverPoints() {
-        double masse = skieur.getMasse();
-        double energiep = Mathutils.enegiepotentiel(masse, hauteur);
+    public boolean atteintCible(double x, double width) {
+        double masse = getSkieur().getMasse();
+        double energiep = Mathutils.energiePotentiel(masse, getHauteur());
         double energiek = energiep;
         double vitesse = 2 * energiek / masse;
-        double vitessex = Mathutils.vitesseX(vitesse, angle);
-        double vitessey = Mathutils.vitesseY(vitesse, angle);
-        double deltay = Mathutils.deltaY(tg.getRamp().getJumpHeigth(), 0);
+        double vitessex = Mathutils.vitesseX(vitesse, getAngle());
+        double vitessey = Mathutils.vitesseY(vitesse, getAngle());
+        double deltay = Mathutils.deltaY(getTg().getRamp().getJumpHeigth(), 0);
         double deltat[] = Mathutils.quad(-4.9, vitessey, deltay);
         double racine1 = 0;
         if (deltat[0] > 0) {
@@ -43,16 +39,50 @@ public class LevelInfo
         }
         else{
             racine1 = deltat[1];
-
         }
         double xfinale = Mathutils.xFinal(vitessex,racine1);
-      /*
-        if (xfinale == cible){
-            ouvrir le pop up
-        }
-        else {
-            recommencer la game
-        }
-        */
+
+         return x <= xfinale && xfinale <=(x+width);
+
+    }
+
+    public Skieur getSkieur() {
+        return skieur;
+    }
+
+    public void setSkieur(Skieur skieur) {
+        this.skieur = skieur;
+    }
+
+    public LevelController getLvc() {
+        return lvc;
+    }
+
+    public void setLvc(LevelController lvc) {
+        this.lvc = lvc;
+    }
+
+    public TerrainGeneration getTg() {
+        return tg;
+    }
+
+    public void setTg(TerrainGeneration tg) {
+        this.tg = tg;
+    }
+
+    public int getHauteur() {
+        return hauteur;
+    }
+
+    public void setHauteur(int hauteur) {
+        this.hauteur = hauteur;
+    }
+
+    public double getAngle() {
+        return angle;
+    }
+
+    public void setAngle(double angle) {
+        this.angle = angle;
     }
 }

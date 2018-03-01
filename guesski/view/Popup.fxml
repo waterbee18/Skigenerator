@@ -10,6 +10,6 @@
    </stylesheets>
    <children>
       <Button mnemonicParsing="false" onAction="#closePopup" text="Menu" />
-      <Button mnemonicParsing="false" onAction="#openGame" text="rejouer" />
+      <Button mnemonicParsing="false" onAction="#openGame" text="Rejouer" />
    </children>
 </VBox>

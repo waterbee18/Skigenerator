@@ -1,9 +1,9 @@
 Button{
    -fx-pref-width: 300px;
     -fx-pref-height: 150px;
-    -fx-background-color: #15DC79;
+    -fx-background-color: #e52727;
     -fx-font-style: oblique;
-    -fx-font-size: 30px;
+    -fx-font-size: 60px;
 }
 VBox{
      -fx-background-image: url("/guesski/view/materials/popupBackground.jpg");
