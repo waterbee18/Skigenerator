@@ -6,7 +6,6 @@ import java.util.Random;
 
 public class LevelInfo
 {
-
     private Skieur skieur;
     private LevelController lvc;
     private TerrainGeneration tg;
@@ -23,6 +22,10 @@ public class LevelInfo
 
         tg = new TerrainGeneration();
         tg.generate(hauteur,angle);
+    }
+
+    public TerrainGeneration getTg() {
+        return tg;
     }
 
     public void TrouverPoints() {

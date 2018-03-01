@@ -16,7 +16,6 @@ public class Pascale extends Application
 
     public void start(Stage primaryStage) throws Exception{
     Parent root = FXMLLoader.load(getClass().getResource("/guesski/view/interjeu.fxml"));
-    primaryStage.setTitle("SAlut ca va");
     primaryStage.setScene(new Scene(root, 300, 275));
     primaryStage.show();
 }

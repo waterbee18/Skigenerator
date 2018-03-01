@@ -1,7 +1,6 @@
 package guesski.model;
 
 
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 
 import java.util.ArrayList;
