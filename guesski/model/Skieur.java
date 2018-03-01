@@ -11,6 +11,11 @@ public class Skieur
     private double vitesseX = 0;
     private double vitesseY = 0;
     private double masse = random.nextInt(60) + 60;
+    private double vitesseX;
+    private double vitesseY;
+    private double fallXStart;
+    private double fallYstart;
+    private double fallingTime;
 
     public double getEnergieK() {
         return energieK;

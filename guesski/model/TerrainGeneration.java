@@ -24,11 +24,15 @@ public class TerrainGeneration {
 
         rampWidth = i;
         double[] rampEdge = new double[(dataPoints.size()+2)*2];
+        for (int j = 0; j < dataPoints.size(); j++){
+            rampEdge[j*2] = dataPoints.get(j).getX();
+            rampEdge[j*2+1] = dataPoints.get(j).getY();
+        }
         rampEdge[dataPoints.size()*2-4] = rampEdge[dataPoints.size()*2-6];
         rampEdge[dataPoints.size()*2-3] = height+10;
         rampEdge[dataPoints.size()*2-2] = 0;
         rampEdge[dataPoints.size()*2-1] = height+10;
-        this.ramp = new Ramp(rampEdge, dataPoints);
+        this.ramp = new Ramp(rampEdge, dataPoints, height, radRampAngle);
         return ramp;
     }
 

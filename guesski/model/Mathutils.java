@@ -6,12 +6,20 @@ package guesski.model;
 public class Mathutils {
 
 
+            double value;
+            Constant(double c){
+                value = c;
+            }
+
+            public double getValue() {
+                return value;
+            }
+        }
 
         public static double enegiepotentiel(double masse, double hauteur){
             return masse*9.81*hauteur;
         }
-
-        public static double energiecinetique(double masse, double vitesse ){
+        public static double energieCinetique(double masse, double vitesse ){
             return 0.5*masse*Math.pow(2,vitesse);
         }
 

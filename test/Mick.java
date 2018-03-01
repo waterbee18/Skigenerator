@@ -18,7 +18,7 @@ public class Mick extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         TerrainGeneration tg = new TerrainGeneration();
-        tg.generate(300, Math.PI/4);
+        tg.generate(600, Math.PI/4);
         Skieur skieur = new Skieur();
         Animation animation = new Animation(skieur,tg.getRamp());
         Group root  = new Group(tg.getRamp(),animation.getSkierModel().getModel());
