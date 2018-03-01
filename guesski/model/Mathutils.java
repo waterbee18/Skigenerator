@@ -6,6 +6,9 @@ package guesski.model;
 public class Mathutils {
 
 
+        public enum Constant{
+            GRAVITY(9.81);
+
             double value;
             Constant(double c){
                 value = c;
@@ -16,7 +19,7 @@ public class Mathutils {
             }
         }
 
-        public static double enegiepotentiel(double masse, double hauteur){
+        public static double energiePotentiel(double masse, double hauteur){
             return masse*9.81*hauteur;
         }
         public static double energieCinetique(double masse, double vitesse ){
