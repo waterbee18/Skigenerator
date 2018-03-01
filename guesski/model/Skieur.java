@@ -8,8 +8,6 @@ public class Skieur
     private double energieK = 0;
     private double energieP = 0;
     private double vitesse = 0;
-    private double vitesseX = 0;
-    private double vitesseY = 0;
     private double masse = random.nextInt(60) + 60;
     private double vitesseX;
     private double vitesseY;
@@ -81,5 +79,38 @@ public class Skieur
 
     public void setVitesseY(double vitesseY) {
         this.vitesseY = vitesseY;
+    }
+
+    public void setVitesseVectorielle(double angle){
+        vitesseX = Math.cos(angle) * vitesse;
+        vitesseY = Math.sin(angle) * vitesse;
+    }
+
+    public double getFallingTime(){
+        return fallingTime;
+    }
+
+    public void setFallingTime(double t){
+        this.fallingTime = t;
+    }
+
+    public void addFallingTime(double add){
+        fallingTime+=add;
+    }
+
+    public double getFallXStart() {
+        return fallXStart;
+    }
+
+    public void setFallXStart(double fallXStart) {
+        this.fallXStart = fallXStart;
+    }
+
+    public double getFallYstart() {
+        return fallYstart;
+    }
+
+    public void setFallYstart(double fallYstart) {
+        this.fallYstart = fallYstart;
     }
 }

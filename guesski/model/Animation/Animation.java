@@ -78,7 +78,7 @@ public class Animation {
         double dX = (skieur.getVitesseX()*skieur.getFallingTime())/scale+skieur.getFallXStart();
         double dY = -(skieur.getVitesseY()*skieur.getFallingTime()-(0.5*Mathutils.Constant.GRAVITY.getValue()*Math.pow(skieur.getFallingTime(),2)))/scale+skieur.getFallYstart();
         model.place(new Node(dX,dY));
-        skieur.addFallTime(deltaT);
+        skieur.addFallingTime(deltaT);
     }
 
     public SkierModel getSkierModel(){
