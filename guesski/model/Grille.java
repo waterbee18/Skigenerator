@@ -14,24 +14,22 @@ public class Grille extends javafx.scene.Group
     private void grille()
     {
 
-        for(int i = 500; i < 1000; i+=50)
-        {
             lineVert = new Line();
-            lineVert.setStartX(i);
+            lineVert.setStartX(500);
             lineVert.setStartY(0);
-            lineVert.setEndX(i);
-            lineVert.setEndY(720);
+            lineVert.setEndX(500);
+            lineVert.setEndY(650);
+            lineVert.setStrokeWidth(5);
             getChildren().add(lineVert);
-        }
 
-        for (int j = 50; j < 700; j+=50)
-        {
+
             lineHor = new Line();
             lineHor.setStartX(500);
-            lineHor.setStartY(j);
+            lineHor.setStartY(650);
             lineHor.setEndX(1024);
-            lineHor.setEndY(j);
+            lineHor.setEndY(650);
+            lineHor.setStrokeWidth(5);
             getChildren().add(lineHor);
-        }
+
     }
 }
