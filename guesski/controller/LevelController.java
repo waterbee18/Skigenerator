@@ -11,8 +11,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 
+import java.util.logging.Level;
+
 public class LevelController
 {
+    private static LevelController lc;
     @FXML
     private Slider slider;
     private Grille grille;
@@ -25,19 +28,25 @@ public class LevelController
     @FXML
     private VBox vb;
 
-    public void slide(){
-        slider.setValue(0);
-        slider.setMax(475);
-        slider.setMin(0);
-        cible.translateXProperty().bind(slider.valueProperty());
-
-    }
     public LevelController(){
+        lc = this;
         levelInfo = new LevelInfo();
         animation =  new Animation(levelInfo.getSkieur(),levelInfo.getTg().getRamp());
         grille = new Grille();
 
     }
+
+    public void slide(){
+        slider.setValue(0);
+        slider.setMax(475);
+        slider.setMin(0);
+        cible.translateXProperty().bind(slider.valueProperty());
+    }
+
+    public static  void slideBind(){
+        lc.slide();
+    }
+
 
     public void start(){
         animation.start();
@@ -62,8 +71,5 @@ public class LevelController
         vb.getChildren().add(0,grille);
         slide();
     }
-
-
-
 
 }

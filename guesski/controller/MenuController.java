@@ -12,8 +12,7 @@ public class MenuController {
 
     public void openGame(){
         GameMaster.openGame();
-
-
+        LevelController.slideBind();
     }
     public void openHelp(){
         GameMaster.openHelp();

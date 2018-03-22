@@ -49,7 +49,7 @@ public class GameMaster {
     }
 
     public void showGameBoard(){
-        panes.getChildren().add(gameBoard);
+         panes.getChildren().add(gameBoard);
     }
 
     public void hideBoardGame(){
