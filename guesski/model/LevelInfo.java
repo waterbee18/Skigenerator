@@ -24,9 +24,13 @@ public class LevelInfo
         getTg().generate(getHauteur(), getAngle());
     }
 
-    public boolean atteintCible(double x, double width) {
-        double masse = getSkieur().getMasse();
-        double energiep = Mathutils.energiePotentiel(masse, getHauteur());
+    public TerrainGeneration getTg() {
+        return tg;
+    }
+
+    public void TrouverPoints() {
+        double masse = skieur.getMasse();
+        double energiep = Mathutils.energiePotentiel(masse, hauteur);
         double energiek = energiep;
         double vitesse = 2 * energiek / masse;
         double vitessex = Mathutils.vitesseX(vitesse, getAngle());
@@ -36,8 +40,7 @@ public class LevelInfo
         double racine1 = 0;
         if (deltat[0] > 0) {
             racine1 = deltat[0];
-        }
-        else{
+        } else {
             racine1 = deltat[1];
         }
         double xfinale = Mathutils.xFinal(vitessex,racine1);
