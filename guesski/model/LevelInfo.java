@@ -14,21 +14,14 @@ public class LevelInfo
     public LevelInfo()
     {
         Random random = new Random();
-
-         setHauteur(random.nextInt(300)+300);
-         setAngle(0.5 + (1 - 0.5) * random.nextDouble());
-
+        setHauteur(random.nextInt(300)+300);
+        setAngle(0.5 + (1 - 0.5) * random.nextDouble());
         setSkieur(new Skieur());
-
         setTg(new TerrainGeneration());
-        getTg().generate(getHauteur(), getAngle());
+        tg.generate(getHauteur(), getAngle());
     }
 
-    public TerrainGeneration getTg() {
-        return tg;
-    }
-
-    public void TrouverPoints() {
+    public boolean atteintCible(double x, double width) {
         double masse = skieur.getMasse();
         double energiep = Mathutils.energiePotentiel(masse, hauteur);
         double energiek = energiep;
@@ -45,7 +38,7 @@ public class LevelInfo
         }
         double xfinale = Mathutils.xFinal(vitessex,racine1);
 
-         return x <= xfinale && xfinale <=(x+width);
+        return x <= xfinale && xfinale <=(x+width);
 
     }
 
