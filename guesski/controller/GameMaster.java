@@ -99,7 +99,9 @@ public class GameMaster {
 
     public static void closeHelp(){gm.hidehelpcenter();}
 
-    public static void openPopup(){gm.showhpopupcenter();}
+    public static void openPopup(){
+        gm.showhpopupcenter();
+    }
 
     public static void closePopup(){gm.hidepopupcenter();}
 

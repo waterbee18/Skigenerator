@@ -14,7 +14,6 @@ VBox{
      -fx-spacing: 20;
  }
 Label{
-    -fx-pref-width: 300px;
     -fx-pref-height: 150px;
     -fx-font-style: oblique;
     -fx-font-size: 60px;

@@ -5,6 +5,8 @@ import guesski.model.LevelInfo;
 import guesski.model.Grille;
 import guesski.model.LevelInfo;
 import guesski.model.Ramp;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -31,6 +33,10 @@ public class LevelController
     @FXML
     private Label label;
 
+    @FXML
+    private Label score;
+    private IntegerProperty scoreProp;
+
     public LevelController(){
         lc = this;
         levelInfo = new LevelInfo();
@@ -53,14 +59,19 @@ public class LevelController
 
     public void start(){
         animation.start();
+
         if (levelInfo.atteintCible(cible.getX(),cible.getWidth())){
-            label.setText("Vous avez gagné!");
-           GameMaster.openPopup();
-        }
-        else{
-            label.setText("Vous avez perdu!");
+            PopupController.setLabel("Vous avez gagné!");
             GameMaster.openPopup();
+            scoreProp.setValue(scoreProp.get()+1);
         }
+        else
+        {
+            PopupController.setLabel("Vous avez perdu!");
+            GameMaster.openPopup();
+            scoreProp.setValue(0);
+        }
+
         cible.translateXProperty().unbind();
     }
 
@@ -68,12 +79,17 @@ public class LevelController
         GameMaster.closeGame();
 
     }
-    public void openPopup(){GameMaster.openPopup();}
+    public void openPopup(){
+        PopupController.setLabel(" ");
+        GameMaster.openPopup();
+    }
     public void openHelp(){GameMaster.openHelp();}
 
 
     @FXML
     public void initialize() {
+        scoreProp = new SimpleIntegerProperty(0);
+        score.textProperty().bind(scoreProp.asString());
         Ramp ramp = levelInfo.getTg().getRamp();
         hb.getChildren().add(0,ramp);
         vb.getChildren().add(0,grille);
