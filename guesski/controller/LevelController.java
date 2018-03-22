@@ -6,6 +6,7 @@ import guesski.model.Grille;
 import guesski.model.LevelInfo;
 import guesski.model.Ramp;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -27,6 +28,8 @@ public class LevelController
     private Animation animation;
     @FXML
     private VBox vb;
+    @FXML
+    private Label label;
 
     public LevelController(){
         lc = this;
@@ -51,7 +54,12 @@ public class LevelController
     public void start(){
         animation.start();
         if (levelInfo.atteintCible(cible.getX(),cible.getWidth())){
-
+            label.setText("Vous avez gagné!");
+           GameMaster.openPopup();
+        }
+        else{
+            label.setText("Vous avez perdu!");
+            GameMaster.openPopup();
         }
         cible.translateXProperty().unbind();
     }
