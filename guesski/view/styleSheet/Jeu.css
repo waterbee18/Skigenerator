@@ -1,6 +1,5 @@
 AnchorPane{
 -fx-background-color: linear-gradient(to bottom, #5ea1e1, white);
--fx-background-size: 1024 720;
 }
 Rectangle{
 -fx-stroke: #15DC79;
@@ -21,6 +20,7 @@ Button{
 Slider{
 -fx-control-inner-background: #15DC79;
 }
+
 Label{
     -fx-pref-width: 150px;
     -fx-pref-height: 35px;

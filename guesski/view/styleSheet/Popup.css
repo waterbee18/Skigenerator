@@ -6,7 +6,7 @@ Button{
     -fx-font-size: 60px;
 }
 VBox{
-     -fx-background-image: url("/guesski/view/materials/popupBackground.jpg");
+     -fx-background-image: url("/guesski/view/materials/menuBackground.jpg");
      -fx-background-repeat: stretch;
      -fx-background-size: 768 540;
      -fx-background-position: center center;

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="BOTTOM_CENTER" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guesski.controller.HelpController">
+<VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guesski.controller.HelpController">
     <stylesheets>
         <URL value="@styleSheet/Help.css" />
     </stylesheets>
@@ -19,13 +18,7 @@
        <Label text="∆y=(Viniy*∆t)-0.5*g*(∆t)^2" />
        <Label text="∆t=(b±√(b^2-4ac))/2a" />
        <Label text="Xf=Vx*∆t" />
-      <HBox alignment="CENTER_RIGHT">
-         <children>
-             <Button mnemonicParsing="false" onAction="#closeHelp" text="Compris!!">
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin></Button>
-         </children>
-      </HBox>
+       <Button mnemonicParsing="false" onAction="#closeHelp" text="Compris!!" />
+      <HBox alignment="CENTER_RIGHT" />
    </children>
 </VBox>

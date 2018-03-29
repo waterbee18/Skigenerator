@@ -2,11 +2,13 @@ package guesski.controller;
 
 import guesski.view.View;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -31,12 +33,14 @@ public class GameMaster {
         panes = new StackPane();
         stretch(panes);
 
+
         root = new AnchorPane(panes);
         menu = load(View.MENU);
         help = load(View.HELP);
         gameBoard = load(View.GAME);
         popup = load(View.POPUP);
-        Scene scene = new Scene(root,1024,720);
+        Rectangle2D screenDimensions = Screen.getPrimary().getVisualBounds();
+        Scene scene = new Scene(root,screenDimensions.getMaxX(),screenDimensions.getMaxY());
         stage.setScene(scene);
         showMenu();
         stage.show();

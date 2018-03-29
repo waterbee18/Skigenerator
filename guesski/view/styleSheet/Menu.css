@@ -1,3 +1,11 @@
+AnchorPane{
+
+
+     -fx-background-image: url("/guesski/view/materials/NewBackground.jpg");
+     -fx-background-repeat: stretch;
+     -fx-background-position: center center;
+}
+
 Button{
    -fx-pref-width: 400px;
     -fx-pref-height: 150px;
@@ -6,19 +14,17 @@ Button{
     -fx-background-color: #15DC79;
     -fx-font-style: oblique;
     -fx-font-size: 80px;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+}
+HBox{
+    -fx-aligment: center;
 }
 VBox{
-     -fx-background-image: url("/guesski/view/materials/menuBackground.jpg");
-     -fx-background-repeat: stretch;
-     -fx-background-size: 1200 1000;
-     -fx-background-position: center center;
-     -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
-     -fx-spacing: 10;
+-fx-aligment: center;
+
+     -fx-spacing: 30;
  }
 Label{
     -fx-font-style: oblique;
-    -fx-font-size: 80px;
-}
-TextFlow{
-
+    -fx-font-size: 100px;
 }

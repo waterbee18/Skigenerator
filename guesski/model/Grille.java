@@ -1,5 +1,6 @@
 package guesski.model;
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 public class Grille extends javafx.scene.Group
@@ -13,23 +14,27 @@ public class Grille extends javafx.scene.Group
 
     private void grille()
     {
-
+        for(int i = 500; i < 1050; i+=50){
             lineVert = new Line();
-            lineVert.setStartX(500);
+            lineVert.setStartX(i);
             lineVert.setStartY(0);
-            lineVert.setEndX(500);
+            lineVert.setEndX(i);
             lineVert.setEndY(650);
-            lineVert.setStrokeWidth(5);
+            lineVert.setStrokeWidth(1);
+            lineVert.setStroke(Color.GRAY);
             getChildren().add(lineVert);
-
-
+    }
+        for (int j = 0; j < 700; j+=50){
             lineHor = new Line();
             lineHor.setStartX(500);
-            lineHor.setStartY(650);
-            lineHor.setEndX(1024);
-            lineHor.setEndY(650);
-            lineHor.setStrokeWidth(5);
+            lineHor.setStartY(j);
+            lineHor.setEndX(1000);
+            lineHor.setEndY(j);
+            lineHor.setStrokeWidth(1);
+            lineHor.setStroke(Color.GRAY);
             getChildren().add(lineHor);
+        }
+
 
     }
 }
