@@ -14,7 +14,7 @@ public class Grille extends javafx.scene.Group
 
     private void grille()
     {
-        for(int i = 500; i < 1050; i+=50){
+        for(int i = 500; i < 1250; i+=50){
             lineVert = new Line();
             lineVert.setStartX(i);
             lineVert.setStartY(0);
@@ -28,7 +28,7 @@ public class Grille extends javafx.scene.Group
             lineHor = new Line();
             lineHor.setStartX(500);
             lineHor.setStartY(j);
-            lineHor.setEndX(1000);
+            lineHor.setEndX(1200);
             lineHor.setEndY(j);
             lineHor.setStrokeWidth(1);
             lineHor.setStroke(Color.GRAY);

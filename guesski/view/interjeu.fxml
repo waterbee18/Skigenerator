@@ -52,11 +52,11 @@
                         <VBox fx:id="infoJeu">
                            <children>
                               <Label text="Informations" />
-                              <Label text="Échelle: 1 carré = jsp m" />
-                              <Label text="masse skieur = ,jgchfcfxcgfxngxgxdxhdxhdxhdxgxgfx" />
-                              <Label text="hauteur pente = " />
-                              <Label text="angle saut = " />
-                              <Label text="hauteur saut = " />
+                              <Label fx:id="echelle" text="Échelle: 1 carré = " />
+                              <Label fx:id="ms" text="masse skieur =" />
+                              <Label fx:id="hp" text="hauteur pente = " />
+                              <Label fx:id="as" text="angle saut = " />
+                              <Label fx:id="hs" text="hauteur saut = " />
                            </children>
                         </VBox>
                      </children>

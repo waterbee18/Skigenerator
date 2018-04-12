@@ -32,6 +32,16 @@ public class LevelController
     private VBox vb;
     @FXML
     private Label label;
+    @FXML
+    private Label echelle;
+    @FXML
+    private Label ms;
+    @FXML
+    private Label hp;
+    @FXML
+    private Label as;
+    @FXML
+    private Label hs;
 
     @FXML
     private Label score;
@@ -44,10 +54,18 @@ public class LevelController
         grille = new Grille();
 
     }
+    public void information(){
+        echelle.setText("Échelle: 1 carré = " );
+        ms.setText("Masse skieur = " + levelInfo.getSkieur().getMasse());
+        hp.setText("Hauteur pente = " + levelInfo.getHauteur());
+        as.setText("Angle saut = " + levelInfo.getAngle());
+        hs.setText("Hauteur saut = ");
+
+    }
 
     public void slide(){
         slider.setValue(0);
-        slider.setMax(475);
+        slider.setMax(650);
         slider.setMin(0);
         cible.translateXProperty().bind(slider.valueProperty());
     }
@@ -55,7 +73,6 @@ public class LevelController
     public static  void slideBind(){
         lc.slide();
     }
-
 
     public void start(){
         animation.start();
@@ -94,6 +111,7 @@ public class LevelController
         hb.getChildren().add(0,ramp);
         vb.getChildren().add(0,grille);
         slide();
+        information();
     }
 
 }
