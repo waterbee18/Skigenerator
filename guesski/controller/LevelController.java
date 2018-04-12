@@ -64,11 +64,11 @@ public class LevelController
 
         NumberFormat formatter = new DecimalFormat("#0.00");
 
-        echelle.setText("Échelle: 1 carré = " );
+        echelle.setText("Échelle: 1 carré = "+50/levelInfo.getScale()+"m");
         ms.setText("Masse skieur= " + formatter.format(levelInfo.getSkieur().getMasse())+ "kg");
-        hp.setText("Hauteur pente = " + formatter.format(levelInfo.getHauteur())+ "m");
-        as.setText("Angle saut = " + formatter.format(Math.toDegrees(levelInfo.getTg().getRamp().getAngle())) +"°");
-        hs.setText("Hauteur rampe = " + formatter.format(levelInfo.getTg().getRamp().getJumpHeigth())+ "m");
+        hp.setText("Hauteur pente = " + formatter.format(levelInfo.getRamp().getHeigth()/levelInfo.getScale())+ "m");
+        as.setText("Angle saut = " + formatter.format(Math.toDegrees(levelInfo.getRamp().getAngle())) +"°");
+        hs.setText("Hauteur rampe = " + formatter.format(levelInfo.getRamp().getJumpHeigth()/levelInfo.getScale())+ "m");
 
     }
 
@@ -122,6 +122,7 @@ public class LevelController
         vb.getChildren().add(0,grille);
         stackPane.getChildren().add(levelInfo.getAnimation().getSkierModel().getModel());
         slide();
+        information();
     }
 
     public void closeGame(){

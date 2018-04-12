@@ -33,9 +33,6 @@
                         <Label text="Score :" />
                         <Label fx:id="score" text="0" />
                      </children>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
                   </HBox>
                </children>
             </HBox>

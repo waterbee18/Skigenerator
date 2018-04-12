@@ -1,5 +1,6 @@
 package guesski.model;
 
+import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
@@ -15,6 +16,10 @@ public class Grille extends javafx.scene.Group
     private void grille()
     {
         for(int i = 500; i < 1250; i+=50){
+            Label label = new Label((i-500)/50+"");
+            label.setTranslateX(i+4);
+            label.setTranslateY(620);
+            getChildren().add(label);
             lineVert = new Line();
             lineVert.setStartX(i);
             lineVert.setStartY(0);

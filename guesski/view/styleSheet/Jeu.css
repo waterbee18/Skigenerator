@@ -15,14 +15,12 @@ Button{
     -fx-font-size: 20px;
 }
 
-
-
 Slider{
--fx-control-inner-background: #15DC79;
+    -fx-control-inner-background: #15DC79;
+    -fx-padding: 0 0 20 0;
 }
 
 Label{
-    -fx-pref-width: 150px;
     -fx-pref-height: 35px;
     -fx-font-style: oblique;
     -fx-font-size: 20px;

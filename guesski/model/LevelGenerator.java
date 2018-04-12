@@ -11,8 +11,8 @@ public class LevelGenerator {
 
     public LevelInfo generate(){
         double scale = 5;//px/m
-        heigth = 100;//random.nextInt(300)+300;
-        angle = Math.PI/4;//(0.5 + (1 - 0.5) * random.nextDouble());
+        heigth = random.nextInt(250)+100;
+        angle = (0.5 + (1 - 0.5) * random.nextDouble());
         Skieur skieur = new Skieur(heigth/scale);
         List<Vector> rampVectors = new ArrayList<>();
         Ramp ramp = new Ramp(heigth,angle);
