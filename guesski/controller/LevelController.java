@@ -14,6 +14,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.logging.Level;
 
 public class LevelController
@@ -55,11 +57,14 @@ public class LevelController
 
     }
     public void information(){
+
+        NumberFormat formatter = new DecimalFormat("#0.00");
+
         echelle.setText("Échelle: 1 carré = " );
-        ms.setText("Masse skieur = " + levelInfo.getSkieur().getMasse());
-        hp.setText("Hauteur pente = " + levelInfo.getHauteur());
-        as.setText("Angle saut = " + levelInfo.getAngle());
-        hs.setText("Hauteur saut = ");
+        ms.setText("Masse skieur= " + formatter.format(levelInfo.getSkieur().getMasse())+ "kg");
+        hp.setText("Hp= " + formatter.format(levelInfo.getHauteur())+ "m");
+        as.setText("Angle saut = " + formatter.format(Math.toDegrees(levelInfo.getTg().getRamp().getAngle())) +"°");
+        hs.setText("Hr= " + formatter.format(levelInfo.getTg().getRamp().getJumpHeigth())+ "m");
 
     }
 
