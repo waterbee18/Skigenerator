@@ -62,9 +62,9 @@ public class LevelController
 
         echelle.setText("Échelle: 1 carré = " );
         ms.setText("Masse skieur= " + formatter.format(levelInfo.getSkieur().getMasse())+ "kg");
-        hp.setText("Hp= " + formatter.format(levelInfo.getHauteur())+ "m");
+        hp.setText("Hauteur pente = " + formatter.format(levelInfo.getHauteur())+ "m");
         as.setText("Angle saut = " + formatter.format(Math.toDegrees(levelInfo.getTg().getRamp().getAngle())) +"°");
-        hs.setText("Hr= " + formatter.format(levelInfo.getTg().getRamp().getJumpHeigth())+ "m");
+        hs.setText("Hauteur rampe = " + formatter.format(levelInfo.getTg().getRamp().getJumpHeigth())+ "m");
 
     }
 

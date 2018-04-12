@@ -16,7 +16,7 @@
        <Label text="Ek=0.5*m*v^2" />
        <Label text="Vx/Vy =cos/sin(θ)v" />
        <Label text="∆y=(Viniy*∆t)-0.5*g*(∆t)^2" />
-       <Label text="∆t=(b±√(b^2-4ac))/2a" />
+       <Label text="∆t=(-b±√(b^2-4ac))/2a" />
        <Label text="Xf=Vx*∆t" />
        <Button mnemonicParsing="false" onAction="#closeHelp" text="Compris!!" />
       <HBox alignment="CENTER_RIGHT" />
