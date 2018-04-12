@@ -7,6 +7,9 @@ import guesski.model.Grille;
 import guesski.model.Ramp;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -27,6 +30,8 @@ public class LevelController
     private Rectangle cible;
     @FXML
     private HBox hb;
+    @FXML
+    private StackPane stackPane;
     private LevelGenerator levelGenerator;
     private LevelInfo levelInfo;
     @FXML
@@ -50,8 +55,8 @@ public class LevelController
 
     public LevelController(){
         lc = this;
-        levelInfo = new LevelInfo();
-        animation =  new Animation(levelInfo.getSkieur(),levelInfo.getTg().getRamp());
+        levelGenerator = new LevelGenerator();
+        levelInfo = levelGenerator.generate();
         grille = new Grille();
 
     }
@@ -73,40 +78,54 @@ public class LevelController
         slider.setMin(0);
         cible.translateXProperty().bind(slider.valueProperty());
     }
-    public LevelController(){
-        levelGenerator = new LevelGenerator();
-        levelInfo = levelGenerator.generate();
+
 
     public static  void slideBind(){
         lc.slide();
     }
 
     public void start(){
-        animation.start();
-
-        if (levelInfo.atteintCible(cible.getX(),cible.getWidth())){
-            PopupController.setLabel("Vous avez gagné!");
-            GameMaster.openPopup();
-            scoreProp.setValue(scoreProp.get()+1);
-        }
-        else
-        {
-            PopupController.setLabel("Vous avez perdu!");
-            GameMaster.openPopup();
-            scoreProp.setValue(0);
-        }
-
+        levelInfo.getAnimation().start();
         cible.translateXProperty().unbind();
-        if (levelInfo.atteintCible(cible.getX(),800)){
-            System.out.println("Oui");
-        } else {
-            System.out.println("non");
-        }
+        Task<Void> sleep = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                Thread.sleep((long)(levelInfo.getAnimation().getDuration()*1000));
+                return null;
+            }
+        };
+        sleep.setOnSucceeded(event ->  {
+            System.out.println("Skieur: "+levelInfo.getAnimation().getSkierModel().getModel().translateXProperty().get()+", platforme: "+(cible.translateXProperty().get()+levelInfo.getRamp().getWidth()));
+            double dX = Math.abs(levelInfo.getAnimation().getSkierModel().getModel().translateXProperty().get()-(cible.translateXProperty().get()+levelInfo.getRamp().getWidth()));
+            double width = cible.getWidth();
+            if (dX<width){
+                    PopupController.setLabel("Vous avez gagné!");
+                    GameMaster.openPopup();
+                    scoreProp.setValue(scoreProp.get()+1);
+                } else {
+                    PopupController.setLabel("Vous avez perdu!");
+                    GameMaster.openPopup();
+                    scoreProp.setValue(0);
+                }
+                restart();
+        });
+        new Thread(sleep).start();
+    }
+
+    public void restart(){
+        stackPane.getChildren().remove(levelInfo.getAnimation().getSkierModel().getModel());
+        hb.getChildren().remove(levelInfo.getRamp());
+        vb.getChildren().remove(grille);
+        levelInfo = levelGenerator.generate();
+        Ramp ramp = levelInfo.getRamp();
+        hb.getChildren().add(0,ramp);
+        vb.getChildren().add(0,grille);
+        stackPane.getChildren().add(levelInfo.getAnimation().getSkierModel().getModel());
+        slide();
     }
 
     public void closeGame(){
         GameMaster.closeGame();
-
     }
     public void openPopup(){
         PopupController.setLabel(" ");
@@ -119,10 +138,11 @@ public class LevelController
     public void initialize() {
         scoreProp = new SimpleIntegerProperty(0);
         score.textProperty().bind(scoreProp.asString());
-        Ramp ramp = levelInfo.getTg().getRamp();
+        Ramp ramp = levelInfo.getRamp();
         hb.getChildren().add(0,ramp);
         vb.getChildren().add(0,grille);
-        vb.setTranslateX(ramp.getWidth());
+        stackPane.getChildren().add(levelInfo.getAnimation().getSkierModel().getModel());
+        stackPane.getChildren().add(levelInfo.getAnimation().getSkierModel().getPostionMark());
         slide();
         information();
     }

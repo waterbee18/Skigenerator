@@ -1,6 +1,5 @@
 package guesski.model;
 
-import guesski.controller.LevelController;
 import guesski.model.Animation.Animation;
 
 public class LevelInfo

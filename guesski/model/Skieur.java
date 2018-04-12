@@ -8,7 +8,7 @@ public class Skieur
     private double energieK = 0;
     private double energieP = 0;
     private double vitesse = 0;
-    private double masse = random.nextInt(60) + 60;
+    private double masse = 107;//random.nextInt(60) + 60;
     private double vitesseX;
     private double vitesseY;
     private double fallXStart;

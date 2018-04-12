@@ -8,10 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane fx:id="anchor" nodeOrientation="LEFT_TO_RIGHT" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guesski.controller.LevelController">
+<AnchorPane fx:id="anchor" nodeOrientation="LEFT_TO_RIGHT" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guesski.controller.LevelController">
    <stylesheets>
       <URL value="@styleSheet/Jeu.css" />
    </stylesheets>
@@ -42,11 +43,19 @@
          <center>
             <VBox>
                <children>
-                  <HBox fx:id="hb" alignment="BOTTOM_LEFT">
+                  <StackPane fx:id="stackPane" alignment="BOTTOM_LEFT">
                      <children>
-                        <VBox fx:id="vb" alignment="BOTTOM_LEFT">
+                        <VBox alignment="BOTTOM_LEFT">
                            <children>
-                              <Rectangle fx:id="cible" arcHeight="5.0" arcWidth="5.0" fill="RED" height="10.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+                              <HBox fx:id="hb" alignment="BOTTOM_LEFT">
+                                 <children>
+                                    <VBox fx:id="vb" alignment="BOTTOM_LEFT">
+                                       <children>
+                                          <Rectangle fx:id="cible" arcHeight="5.0" arcWidth="5.0" fill="RED" height="10.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
                            </children>
                         </VBox>
                         <VBox fx:id="infoJeu">
@@ -60,7 +69,7 @@
                            </children>
                         </VBox>
                      </children>
-                  </HBox>
+                  </StackPane>
                   <Slider fx:id="slider" showTickMarks="true" />
                </children>
             </VBox>

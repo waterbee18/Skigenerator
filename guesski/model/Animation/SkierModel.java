@@ -4,11 +4,15 @@ import guesski.model.Node;
 import guesski.model.Vector;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+
 import java.io.File;
 
 
 public class SkierModel {
     private ImageView skier;
+    private Circle position;
     private double width;
     private double heigth;
     private double lastX = 0;
@@ -48,9 +52,17 @@ public class SkierModel {
         return skier;
     }
 
+    public Circle getPostionMark(){
+        position = new Circle(3);
+        position.setFill(Color.RED);
+        return this.position;
+    }
+
     public void move(Vector vector){
         double newdx = vector.getDx()-width/2;
         double newdy = vector.getDy();
+        //position.setTranslateX(newdx);
+        //position.setTranslateY(newdy);
         skier.setTranslateX(newdx);
         skier.setTranslateY(newdy);
         skier.setRotate(Math.atan((newdx-lastX)/(lastY-newdy))*360/(2*Math.PI)+90);

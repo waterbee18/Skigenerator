@@ -26,9 +26,14 @@ public class PopupController {
         textProp.set(text);
     }
 
-    public void closePopup(){GameMaster.closePopup();GameMaster.closeGame();}
+    public void closePopup(){
+        GameMaster.closePopup();
+        GameMaster.closeGame();
+    }
 
-    public void openGame(){GameMaster.closePopup();
-    LevelController.slideBind();}
+    public void openGame(){
+        GameMaster.closePopup();
+        LevelController.slideBind();
+    }
 
 }

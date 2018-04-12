@@ -11,7 +11,7 @@ public class LevelGenerator {
 
     public LevelInfo generate(){
         double scale = 5;//px/m
-        heigth = 200;//random.nextInt(300)+300;
+        heigth = 100;//random.nextInt(300)+300;
         angle = Math.PI/4;//(0.5 + (1 - 0.5) * random.nextDouble());
         Skieur skieur = new Skieur(heigth/scale);
         List<Vector> rampVectors = new ArrayList<>();
@@ -31,7 +31,7 @@ public class LevelGenerator {
         ramp.getPoints().add(heigth+10);
         ramp.getPoints().add(0D);
         ramp.getPoints().add(heigth+10);
-        Animation animation = generateAnimation(rampVectors, skieur,scale);
+        Animation animation = generateAnimation(rampVectors, skieur, scale);
         return new LevelInfo(skieur,ramp,heigth,angle,animation,scale);
     }
 
@@ -46,6 +46,7 @@ public class LevelGenerator {
         skieur.move(Vector.scalarMultiply(startingVector,1/scale));
         Vector last = startingVector.clone();
         last.invertY();
+
         for (int i = 10; i < ramp.size();i++){
             Vector cv = ramp.get(i);
             Vector move = new Vector(0,0);
