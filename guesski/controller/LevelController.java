@@ -1,17 +1,16 @@
 package guesski.controller;
 
 import guesski.model.Animation.Animation;
+import guesski.model.LevelGenerator;
 import guesski.model.LevelInfo;
 import guesski.model.Grille;
-import guesski.model.LevelInfo;
 import guesski.model.Ramp;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 
 import java.text.DecimalFormat;
@@ -28,8 +27,8 @@ public class LevelController
     private Rectangle cible;
     @FXML
     private HBox hb;
+    private LevelGenerator levelGenerator;
     private LevelInfo levelInfo;
-    private Animation animation;
     @FXML
     private VBox vb;
     @FXML
@@ -74,6 +73,9 @@ public class LevelController
         slider.setMin(0);
         cible.translateXProperty().bind(slider.valueProperty());
     }
+    public LevelController(){
+        levelGenerator = new LevelGenerator();
+        levelInfo = levelGenerator.generate();
 
     public static  void slideBind(){
         lc.slide();
@@ -95,6 +97,11 @@ public class LevelController
         }
 
         cible.translateXProperty().unbind();
+        if (levelInfo.atteintCible(cible.getX(),800)){
+            System.out.println("Oui");
+        } else {
+            System.out.println("non");
+        }
     }
 
     public void closeGame(){
@@ -115,6 +122,7 @@ public class LevelController
         Ramp ramp = levelInfo.getTg().getRamp();
         hb.getChildren().add(0,ramp);
         vb.getChildren().add(0,grille);
+        vb.setTranslateX(ramp.getWidth());
         slide();
         information();
     }

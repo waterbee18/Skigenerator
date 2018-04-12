@@ -1,12 +1,13 @@
 package test;
 
-import guesski.model.Animation.Animation;
-import guesski.model.Skieur;
-import guesski.model.TerrainGeneration;
+import guesski.model.LevelInfo;
+import guesski.model.LevelGenerator;
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.shape.Polygon;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class Mick extends Application {
@@ -17,13 +18,12 @@ public class Mick extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        TerrainGeneration tg = new TerrainGeneration();
-        tg.generate(600, Math.PI/4);
-        Skieur skieur = new Skieur();
-        Animation animation = new Animation(skieur,tg.getRamp());
-        Group root  = new Group(tg.getRamp(),animation.getSkierModel().getModel());
-        animation.start();
-        Scene s = new Scene(root,720,670);
+        LevelGenerator tg = new LevelGenerator();
+        LevelInfo info = tg.generate();
+        StackPane root  = new StackPane(info.getRamp(),info.getAnimation().getSkierModel().getModel());
+        root.setAlignment(Pos.BOTTOM_LEFT);
+        info.getAnimation().start();
+        Scene s = new Scene(root,1200,670);
         primaryStage.setScene(s);
         primaryStage.show();
     }

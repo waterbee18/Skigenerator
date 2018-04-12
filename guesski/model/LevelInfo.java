@@ -1,24 +1,24 @@
 package guesski.model;
 
 import guesski.controller.LevelController;
-
-import java.util.Random;
+import guesski.model.Animation.Animation;
 
 public class LevelInfo
 {
     private Skieur skieur;
-    private LevelController lvc;
-    private TerrainGeneration tg;
-    private int hauteur = 0;
+    private Ramp ramp;
+    private double hauteur = 0;
     private double angle = 0;
-    public LevelInfo()
-    {
-        Random random = new Random();
-        setHauteur(random.nextInt(300)+300);
-        setAngle(0.5 + (1 - 0.5) * random.nextDouble());
-        setSkieur(new Skieur());
-        setTg(new TerrainGeneration());
-        tg.generate(getHauteur(), getAngle());
+    private Animation animation;
+    private double scale;
+
+    public LevelInfo(Skieur skieur, Ramp ramp, double hauteur, double angle, Animation animation, double scale) {
+        this.skieur = skieur;
+        this.ramp = ramp;
+        this.hauteur = hauteur;
+        this.angle = angle;
+        this.animation = animation;
+        this.scale = scale;
     }
 
     public boolean atteintCible(double x, double width) {
@@ -26,9 +26,9 @@ public class LevelInfo
         double energiep = Mathutils.energiePotentiel(masse, hauteur);
         double energiek = energiep;
         double vitesse = 2 * energiek / masse;
-        double vitessex = Mathutils.vitesseX(vitesse, getAngle());
-        double vitessey = Mathutils.vitesseY(vitesse, getAngle());
-        double deltay = Mathutils.deltaY(getTg().getRamp().getJumpHeigth(), 0);
+        double vitessex = Mathutils.vitesseX(vitesse, ramp.getAngle());
+        double vitessey = Mathutils.vitesseY(vitesse, ramp.getAngle());
+        double deltay = Mathutils.deltaY(ramp.getJumpHeigth(), 0);
         double deltat[] = Mathutils.quad(-4.9, vitessey, deltay);
         double racine1 = 0;
         if (deltat[0] > 0) {
@@ -46,39 +46,15 @@ public class LevelInfo
         return skieur;
     }
 
-    public void setSkieur(Skieur skieur) {
-        this.skieur = skieur;
+    public Ramp getRamp(){
+        return ramp;
     }
 
-    public LevelController getLvc() {
-        return lvc;
+    public Animation getAnimation(){
+        return animation;
     }
 
-    public void setLvc(LevelController lvc) {
-        this.lvc = lvc;
-    }
-
-    public TerrainGeneration getTg() {
-        return tg;
-    }
-
-    public void setTg(TerrainGeneration tg) {
-        this.tg = tg;
-    }
-
-    public int getHauteur() {
-        return hauteur;
-    }
-
-    public void setHauteur(int hauteur) {
-        this.hauteur = hauteur;
-    }
-
-    public double getAngle() {
-        return angle;
-    }
-
-    public void setAngle(double angle) {
-        this.angle = angle;
+    public double getScale(){
+        return scale;
     }
 }

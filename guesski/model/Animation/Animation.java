@@ -1,49 +1,56 @@
 package guesski.model.Animation;
 
-import guesski.model.Mathutils;
-import guesski.model.Node;
-import guesski.model.Ramp;
-import guesski.model.Skieur;
+import guesski.model.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
-import java.util.List;
+import java.util.Queue;
 
 public class Animation {
-    private List<Node> nodes;
-    private List<Double> distance;
-    private int nodeIndex;
-    private Skieur skieur;
-    private Ramp ramp;
-    private Timeline downHill;
-    private Timeline freefall;
-    private SkierModel model;
-    private int scale = 25;
-    private double deltaT = 0.016;
 
-    public Animation(Skieur skieur, Ramp ramp){
-        this.skieur = skieur;
-        this.ramp = ramp;
-        this.nodes = ramp.getNodes();
-        this.distance = ramp.getDistance();
-        downHill = new Timeline(new KeyFrame(Duration.millis(16), (e)-> downHillLoop()));
-        downHill.setCycleCount(Timeline.INDEFINITE);
-        freefall = new Timeline(new KeyFrame(Duration.millis(16), (e)->freeFallLoop()));
-        freefall.setCycleCount(Timeline.INDEFINITE);
+    private SkierModel model;
+    private Timeline animation;
+    private Queue<Vector> movement;
+    private boolean done = false;
+    private Vector oldMove;
+
+    public Animation(Queue<Vector> movements){
+        this.movement = movements;
+        animation = new Timeline(new KeyFrame(Duration.millis(16), (e)->loop()));
+        animation.setCycleCount(Timeline.INDEFINITE);
         model = new SkierModel();
     }
 
+    public void loop(){
+        if (!movement.isEmpty()){
+            Vector newMove = movement.poll();
+            System.out.println(
+                    newMove.getDy()/-5
+            );
+            model.move(newMove);
+        } else {
+            animation.stop();
+            done = true;
+        }
+
+    }
+
+    public boolean isDone(){
+        return done;
+    }
+
     public void start(){
-        skieur.setEnergieP(Mathutils.energiePotentiel(skieur.getMasse(), ramp.getHeigth()/scale));
+        animation.play();
+        /*skieur.setEnergieP(Mathutils.energiePotentiel(skieur.getMasse(), ramp.getHeigth()/scale));
         nodeIndex = 10;
         model.place(nodes.get(nodeIndex));
         double lostP = Mathutils.energiePotentiel(skieur.getMasse(), (nodes.get(nodeIndex).getY()-nodes.get(0).getY())/scale);
         skieur.gainEk(lostP);
         skieur.looseEp(lostP);
-        downHill.play();
+        downHill.play();*/
     }
 
-    private void downHillLoop(){
+ /*   private void downHillLoop(){
         if (nodeIndex<distance.size()) {
             Node before = nodes.get(nodeIndex);
             double d = ((skieur.getVitesse() * deltaT) / scale);
@@ -75,13 +82,8 @@ public class Animation {
         model.orient(Math.atan(dY/dX));
         skieur.addFallingTime(deltaT);
     }
-
+*/
     public SkierModel getSkierModel(){
         return model;
     }
-
-    public int getScale(){
-        return scale;
-    }
-
 }

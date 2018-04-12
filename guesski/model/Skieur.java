@@ -15,6 +15,11 @@ public class Skieur
     private double fallYstart;
     private double fallingTime;
 
+    public Skieur(double heigth){
+        setEnergieP(masse*9.81*heigth);
+        this.vitesse = 0;
+    }
+
     public double getEnergieK() {
         return energieK;
     }
@@ -62,6 +67,7 @@ public class Skieur
     }
 
     public void gainEk(double energie){
+
         setEnergieK(energieK+energie);
     }
 
@@ -112,5 +118,11 @@ public class Skieur
 
     public void setFallYstart(double fallYstart) {
         this.fallYstart = fallYstart;
+    }
+
+    public void move(Vector vector){
+        double deltaE = -1*masse*vector.getDy()*9.81;
+        looseEp(masse*vector.getDy()*9.81);
+        gainEk(deltaE);
     }
 }
