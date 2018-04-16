@@ -5,7 +5,8 @@ public enum View {
     MENU("/guesski/view/Menu.fxml"),
     GAME("/guesski/view/interjeu.fxml"),
     HELP("/guesski/view/Help.fxml"),
-    POPUP("/guesski/view/Popup.fxml");
+    POPUP("/guesski/view/Popup.fxml"),
+    SUBMIT_SCORE("/guesski/view/SubmitScore.fxml");
 
     private String path;
 

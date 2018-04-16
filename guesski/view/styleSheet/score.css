@@ -1,0 +1,27 @@
+Button{
+    -fx-background-color: #15DC79;
+    -fx-font-style: oblique;
+    -fx-font-size: 15px;
+}
+
+TextField{
+    -fx-font-size: 15px;
+}
+
+TilePane{
+     -fx-background-image: url("/guesski/view/materials/menuBackground.jpg");
+     -fx-background-repeat: stretch;
+     -fx-background-size: 768 540;
+     -fx-background-position: center center;
+     -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+     -fx-spacing: 20;
+ }
+
+Label{
+    -fx-font-style: oblique;
+    -fx-font-size: 15px;
+}
+
+#label{
+     -fx-font-size: 35px;
+}

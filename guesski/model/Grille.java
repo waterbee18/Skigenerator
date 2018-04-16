@@ -18,18 +18,18 @@ public class Grille extends javafx.scene.Group
         for(int i = 500; i < 1250; i+=50){
             Label label = new Label((i-500)/50+"");
             label.setTranslateX(i+4);
-            label.setTranslateY(620);
+            label.setTranslateY(520);
             getChildren().add(label);
             lineVert = new Line();
             lineVert.setStartX(i);
             lineVert.setStartY(0);
             lineVert.setEndX(i);
-            lineVert.setEndY(650);
+            lineVert.setEndY(550);
             lineVert.setStrokeWidth(1);
             lineVert.setStroke(Color.GRAY);
             getChildren().add(lineVert);
     }
-        for (int j = 0; j < 700; j+=50){
+        for (int j = 0; j < 600; j+=50){
             lineHor = new Line();
             lineHor.setStartX(500);
             lineHor.setStartY(j);

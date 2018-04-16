@@ -19,21 +19,21 @@
    <children>
       <BorderPane>
          <top>
-            <HBox BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER_LEFT" styleClass="menubar">
                <children>
-                  <HBox alignment="TOP_RIGHT">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#openHelp" text="Help" />
-                        <Button mnemonicParsing="false" onAction="#start" text="Start" />
-                        <Button mnemonicParsing="false" onAction="#openPopup" text="Menu" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="TOP_RIGHT">
+                  <Button mnemonicParsing="false" onAction="#openHelp" text="Aide" />
+                  <Button mnemonicParsing="false" onAction="#openPopup" text="Menu" />
+                  <Button mnemonicParsing="false" onAction="#start" text="Lancer" />
+                  <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                      <children>
                         <Label text="Score :" />
                         <Label fx:id="score" text="0" />
                      </children>
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
                   </HBox>
+
                </children>
             </HBox>
          </top>
@@ -55,7 +55,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox fx:id="infoJeu">
+                        <VBox styleClass="infos">
                            <children>
                               <Label text="Informations" />
                               <Label fx:id="echelle" text="Échelle: 1 carré = " />
@@ -67,7 +67,10 @@
                         </VBox>
                      </children>
                   </StackPane>
-                  <Slider fx:id="slider" showTickMarks="true" />
+                  <Slider fx:id="slider" showTickMarks="true">
+                     <VBox.margin>
+                        <Insets left="50.0" right="50.0" top="20.0" />
+                     </VBox.margin></Slider>
                </children>
             </VBox>
          </center>

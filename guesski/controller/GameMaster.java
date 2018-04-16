@@ -11,7 +11,6 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
 
 
@@ -25,6 +24,7 @@ public class GameMaster {
     private Parent gameBoard;
     private Parent help;
     private Parent popup;
+    private Parent submitScore;
     private Scene scene;
 
     public GameMaster(Stage stage){
@@ -32,13 +32,13 @@ public class GameMaster {
         this.stage = stage;
         panes = new StackPane();
         stretch(panes);
-
-
         root = new AnchorPane(panes);
         menu = load(View.MENU);
         help = load(View.HELP);
         gameBoard = load(View.GAME);
+        submitScore = load(View.SUBMIT_SCORE);
         popup = load(View.POPUP);
+
         Rectangle2D screenDimensions = Screen.getPrimary().getVisualBounds();
         Scene scene = new Scene(root,screenDimensions.getMaxX(),screenDimensions.getMaxY());
         stage.setScene(scene);
@@ -60,14 +60,17 @@ public class GameMaster {
         panes.getChildren().remove(gameBoard);
     }
 
-    public void showhelpcenter(){panes.getChildren().add(help);}
+    public void showHelpCenter(){panes.getChildren().add(help);}
 
-    public void hidehelpcenter(){panes.getChildren().remove(help);}
+    public void hideHelpCenter(){panes.getChildren().remove(help);}
 
+    public void showPopUp(){panes.getChildren().add(popup);}
 
-    public void showhpopupcenter(){panes.getChildren().add(popup);}
+    public void hidePopUp(){panes.getChildren().remove(popup);}
 
-    public void hidepopupcenter(){panes.getChildren().remove(popup);}
+    public void showSubmitScore(){panes.getChildren().add(submitScore);}
+
+    public void hideSubmitScore(){panes.getChildren().remove(submitScore);}
 
     private void stretch(Node node){
         AnchorPane.setBottomAnchor(node,0d);
@@ -99,14 +102,21 @@ public class GameMaster {
 
     public static void closeGame(){gm.hideBoardGame();}
 
-    public static void openHelp(){gm.showhelpcenter();}
+    public static void openHelp(){gm.showHelpCenter();}
 
-    public static void closeHelp(){gm.hidehelpcenter();}
+    public static void closeHelp(){gm.hideHelpCenter();}
 
     public static void openPopup(){
-        gm.showhpopupcenter();
+        gm.showPopUp();
     }
 
-    public static void closePopup(){gm.hidepopupcenter();}
+    public static void closePopup(){gm.hidePopUp();}
+
+    public static void openSubmitScore(int score){
+        gm.showSubmitScore();
+        ScoreController.newScore(score);
+    }
+
+    public static void closeSubmitScore(){gm.hideSubmitScore();}
 
 }

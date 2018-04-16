@@ -1,18 +1,19 @@
 AnchorPane{
 -fx-background-color: linear-gradient(to bottom, #5ea1e1, white);
 }
+
 Rectangle{
 -fx-stroke: #15DC79;
 -fx-fill: #15DC79;
-
-
 }
+
 Button{
    -fx-pref-width: 100px;
     -fx-pref-height: 35px;
     -fx-background-color: #15DC79;
     -fx-font-style: oblique;
     -fx-font-size: 20px;
+    -fx-background-radius: 0px;
 }
 
 Slider{
@@ -24,5 +25,14 @@ Label{
     -fx-pref-height: 35px;
     -fx-font-style: oblique;
     -fx-font-size: 20px;
+}
+
+.infos {
+    -fx-padding: 10px;
+}
+
+.menubar {
+    -fx-background-color: #15DC79;
+    -fx-padding: 10px 0 0 0;
 }
 

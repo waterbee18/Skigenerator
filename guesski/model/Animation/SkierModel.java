@@ -65,7 +65,12 @@ public class SkierModel {
         //position.setTranslateY(newdy);
         skier.setTranslateX(newdx);
         skier.setTranslateY(newdy);
-        skier.setRotate(Math.atan((newdx-lastX)/(lastY-newdy))*360/(2*Math.PI)+90);
+        double angle = Math.atan((newdx-lastX)/(lastY-newdy))*360/(2*Math.PI)+90;
+        if (angle < -90 || angle > 90){
+            skier.setRotate(angle-180);
+        } else {
+            skier.setRotate(angle);
+        }
         lastX = newdx;
         lastY = newdy;
     }

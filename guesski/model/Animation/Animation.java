@@ -25,7 +25,6 @@ public class Animation {
     public void loop(){
         if (!movement.isEmpty()){
             Vector newMove = movement.poll();
-            System.out.println(newMove.getDy()*-1);
             model.move(newMove);
         } else {
             animation.stop();

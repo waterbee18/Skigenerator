@@ -13,7 +13,6 @@ public class PopupController {
 
     @FXML
     private Label label;
-
     private static StringProperty textProp;
 
     @FXML

@@ -18,8 +18,8 @@
       
                 <children>
                   <Label text="GUESSKI" />
-                  <Button mnemonicParsing="false" onAction="#openGame" text="PLAY" />
-                  <Button mnemonicParsing="false" onAction="#openHelp" text="HELP" />
+                  <Button mnemonicParsing="false" onAction="#openGame" text="JOUER" />
+                  <Button mnemonicParsing="false" onAction="#openHelp" text="AIDE" />
                </children>
             </VBox>
          </children>
