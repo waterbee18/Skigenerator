@@ -67,7 +67,6 @@ public class LevelController
         hb.getChildren().add(0,ramp);
         vb.getChildren().add(0,grille);
         stackPane.getChildren().add(levelInfo.getAnimation().getSkierModel().getModel());
-        stackPane.getChildren().add(levelInfo.getAnimation().getSkierModel().getPostionMark());
         slide();
         information();
     }
