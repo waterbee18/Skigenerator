@@ -21,7 +21,7 @@
                   <Label text="Soumettez votre score" />
                   <HBox>
                      <children>
-                        <TextField fx:id="name" text="Nom" />
+                        <TextField fx:id="name" promptText="Nom" />
                         <Button mnemonicParsing="false" onAction="#submitScore" text="Soumettre" />
                      </children>
                   </HBox>

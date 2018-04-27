@@ -49,6 +49,7 @@ public class LevelController
     private Label score;
     private IntegerProperty scoreProp;
     private TreeSet<Score> leaderBoard;
+    private boolean running = false;
 
     public LevelController(){
         lc = this;
@@ -73,6 +74,10 @@ public class LevelController
 
 
     public void start(){
+        if (running){
+            return;
+        }
+        running = true;
         levelInfo.getAnimation().start();
         cible.translateXProperty().unbind();
         Task<Void> sleep = new Task<Void>() {
@@ -95,6 +100,7 @@ public class LevelController
                 scoreProp.setValue(0);
             }
             restart();
+            running = false;
         });
         new Thread(sleep).start();
     }

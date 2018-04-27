@@ -11,7 +11,7 @@
    </stylesheets>
    <children>
       <Label fx:id="label" text=" " />
-      <Button mnemonicParsing="false" onAction="#openGame" text="Continuer" />
+      <Button mnemonicParsing="false" onAction="#openGame" text="Suivant" />
       <Button mnemonicParsing="false" onAction="#closePopup" text="Menu" />
    </children>
 </VBox>
